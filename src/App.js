@@ -3,6 +3,7 @@ import Teste from './teste';
 
 function App() {
   const [pokemon, setPokemon] = React.useState({});
+  const [count, setCount] = React.useState(0);
   var id = 1;
   
 
@@ -16,8 +17,11 @@ function App() {
   }
 
   function Proximo() {
-    id++;
-    Carregar(id);
+      setCount(function(prev){
+        return prev + 1
+      })
+      id++;
+      Carregar(id);
   }
 
   function teste(){
@@ -34,7 +38,7 @@ function App() {
       </div>
     :
       <div>
-        <button onClick={Carregar(1)}>Carregar</button>
+        <button onClick={Carregar(id)}>Carregar</button>
       </div>
     );
     
